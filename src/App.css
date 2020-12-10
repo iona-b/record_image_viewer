@@ -23,9 +23,21 @@
 }
 
 .patients-list-card {
+  width: 100%;
+  background-color: red;
+  border-style: solid;
+  border-color: black;
+  cursor: pointer;
+}
 
+.patients-list-card:hover {
+  background-color: powderblue;
 }
 
 .patients-list-card-active {
-  
+  background-color: yellow;
+}
+
+.button {
+  cursor: pointer;
 }

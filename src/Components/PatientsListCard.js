@@ -3,8 +3,10 @@ import React, { Component } from "react";
 class PatientsList extends Component {
   
     render() {
+      // console.log("patient id " + this.props.patient.id)
+      // console.log("selected patient id " + this.props.selectedPatientId)
       return (
-          <div id="patients-list">
+          <div className={this.props.selectedPatientId === this.props.patient.id ? "patients-list-card-active" : "patients-list-card"} id={this.props.patient.id} onClick={this.props.updateSelectedPatientId} >
             {this.props.patient.name}
           </div>
       );

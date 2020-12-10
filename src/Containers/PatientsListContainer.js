@@ -5,7 +5,7 @@ class PatientsListContainer extends Component {
 
     createPatientsList = () => {
         return this.props.patients.map(patient => {
-           return <PatientsListCard key={patient.id} patient={patient} className="Patients-List-Card"/>
+           return <PatientsListCard key={patient.id} patient={patient} selectedPatientId={this.props.selectedPatientId} updateSelectedPatientId={this.props.updateSelectedPatientId} />
          })
     }
   
@@ -14,7 +14,9 @@ class PatientsListContainer extends Component {
           <div id="patients-list-container">
             <h1>Patients List</h1>
             {this.createPatientsList()}
-            <button onClick={this.props.changeUserHistoryState}>Open User History</button>
+            <button className="button" onClick={this.props.openPatientData} >Open Patient Data</button>
+            <button className="button" onClick={this.props.closePatientData}>Close Patient Data</button>
+            <button className="button" onClick={this.props.changeUserHistoryState}>Open User History</button>
           </div>
       );
     }
