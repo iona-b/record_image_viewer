@@ -1,6 +1,6 @@
 # Record Viewer
 
-This record viewer application is designed to allow synchronisation between a patient data viewer and a patient image viewer. Both the patient data viewer (found in this repository) and the patient image viewer (can be found [here](https://github.com/iona-b/record_image_viewer)) post user actions to a shared database via an API (can be found [here](https://github.com/iona-b/record_viewer_api)), meaning that a user can view their user history on both applications.
+This record viewer application is designed to allow synchronisation between a patient data viewer and a patient image viewer. Both the patient data viewer (can be found [here](https://github.com/iona-b/record_data_viewer)) and the patient image viewer (can be found [here](https://github.com/iona-b/record_image_viewer)) post user actions to a shared database via an API (can be found [here](https://github.com/iona-b/record_viewer_api)), meaning that a user can view their user history on both applications.
 
 ## Installation
 
