@@ -79,9 +79,7 @@ class App extends Component {
         this.setState ({
           openedPatient: {
             name: json.name,
-            type: json.animal_type,
-            age: json.age,
-            emailAddress: json.email_address
+            image: json.image
           }
         })
       })
@@ -130,7 +128,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header id="app-header">Patient Data Viewer</header>
+        <header id="app-header">Patient Image Viewer</header>
         <PatientsListContainer
             patients={this.state.patients}
             openPatientData={this.openPatientData}
