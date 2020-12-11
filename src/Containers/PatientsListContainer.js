@@ -5,7 +5,15 @@ class PatientsListContainer extends Component {
 
     createPatientsList = () => {
         return this.props.patients.map(patient => {
-           return <PatientsListCard key={patient.id} patient={patient} selectedPatientId={this.props.selectedPatientId} updateSelectedPatientId={this.props.updateSelectedPatientId} />
+           return (
+            <PatientsListCard
+              key={patient.id}
+              patient={patient}
+              selectedPatientId={this.props.selectedPatientId}
+              updateSelectedPatientId={this.props.updateSelectedPatientId}
+            />
+           )
+
          })
     }
   

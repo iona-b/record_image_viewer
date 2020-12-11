@@ -36,6 +36,7 @@
 
 .patients-list-card-active {
   background-color: yellow;
+  font-weight: bold;
 }
 
 .button {

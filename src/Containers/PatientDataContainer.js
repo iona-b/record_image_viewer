@@ -12,7 +12,7 @@ class PatientDataContainer extends Component {
               ?
               <h1>Select a Patient To View</h1>
               :
-              <h1>{this.props.openedPatient.name}</h1>
+              <PatientData openedPatient={this.props.openedPatient} />
             }
 
           </div>
