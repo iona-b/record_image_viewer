@@ -1,44 +1,93 @@
-#patients-list-container {
+html, body {
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: black;
+}
+
+#app-header {
+  background-color: black	;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+.containers {
   width: 50%;
-  height: 1000px;
-  background-color: DarkSalmon;
+  height: 100vh;
   position: absolute;
+}
+
+#patients-list-container {
   left: 0px;
 }
 
 #user-history-container {
-  width: 50%;
-  height: 1000px;
-  background-color: AliceBlue;
-  position: absolute;
+  background-color:	#E8E8E8;
   right: 0px;
 }
 
 #patient-data-container {
-  width: 50%;
-  height: 1000px;
-  background-color: AliceBlue;
-  position: absolute;
+  background-color: 	#E8E8E8;
   right: 0px;
 }
 
 .patients-list-card {
-  width: 100%;
-  background-color: red;
-  border-style: solid;
-  border-color: black;
+  width: 80%;
+  border: 0.16em solid #FFFFFF;
   cursor: pointer;
+  margin: auto;
+  padding: 10px;
+  background-color: #585858	;
+  color: white;
+  transition: all 0.15s;
 }
 
 .patients-list-card:hover {
-  background-color: powderblue;
+  background-color: #E8E8E8;
+  color: black;
+  border-color:#BBBBBB;
 }
 
-.patients-list-card-active {
-  background-color: yellow;
+.active {
+  background-color: #FFFFCC;
   font-weight: bold;
+  width: 80%;
+  color: black;
+  border-color:#BBBBBB;
 }
 
-.button {
+#buttons-div {
+  margin-top: 20px;
+  width: 100%;
+}
+
+
+.buttons {
+  display:inline-block;
+  padding: 0.7em 3em;
+  border: 0.16em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.15s;
   cursor: pointer;
+  width: 30%;
+  min-width: 200px;
+}
+
+.buttons:hover{
+  border-color:#DDDDDD;
+}
+.buttons:active{
+  border-color:#BBBBBB;
+}
+
+@media all and (max-width:30em){
+.buttons{
+  display:block;
+  margin:0.4em auto;
+  }
 }

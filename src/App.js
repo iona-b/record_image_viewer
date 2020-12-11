@@ -20,6 +20,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchUser();
+    this.fetchPatients();
+  }
+
+  fetchUser = () => {
     fetch('http://localhost:3000/users/1')
     .then(res => res.json())
     .then(json => {
@@ -31,6 +36,9 @@ class App extends Component {
         }
       })
     })
+  }
+
+  fetchPatients = () => {
     fetch('http://localhost:3000/patients')
     .then(res => res.json())
     .then(json => {
@@ -60,6 +68,10 @@ class App extends Component {
 
   openPatientData = () => {
 
+    this.setState ({
+      userHistoryOpen: false
+    })
+
     if (this.state.selectedPatientId !== 0) {
       fetch(`http://localhost:3000/patients/${this.state.selectedPatientId}`)
       .then(res => res.json())
@@ -73,6 +85,7 @@ class App extends Component {
           }
         })
       })
+
       let data = {
         user_id: 1,
         patient_id: this.state.selectedPatientId,
@@ -92,16 +105,32 @@ class App extends Component {
   }
 
   closePatientData = () => {
+
     this.setState ({
       openedPatient: null
     })
+
+    let data = {
+      user_id: 1,
+      patient_id: this.state.selectedPatientId,
+      user_action: "Closed"
+    }
+
+    fetch(`http://localhost:3000/user_histories`,{
+      method:"POST",
+      headers:{
+          'Content-Type':'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
   }
 
   render () {
 
     return (
       <div className="App">
-        <header className="Record-Data-Viewer">
+        <header id="app-header">Patient Data Viewer</header>
         <PatientsListContainer
             patients={this.state.patients}
             openPatientData={this.openPatientData}
@@ -115,6 +144,7 @@ class App extends Component {
             this.state.userHistoryOpen === true ?
               <UserHistoryContainer
                 user={this.state.user}
+                fetchUser={this.fetchUser}
                 userHistoryOpen={this.state.userHistoryOpen}
               />
             :
@@ -122,7 +152,6 @@ class App extends Component {
               openedPatient={this.state.openedPatient}
             />
           }
-        </header>
       </div>
     );
 

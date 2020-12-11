@@ -6,11 +6,11 @@ class PatientDataContainer extends Component {
     render() {
 
       return (
-          <div id="patient-data-container">
+          <div className="containers" id="patient-data-container">
             {
               this.props.openedPatient === null
               ?
-              <h1>Select a Patient To View</h1>
+              <h2>Select a Patient</h2>
               :
               <PatientData openedPatient={this.props.openedPatient} />
             }

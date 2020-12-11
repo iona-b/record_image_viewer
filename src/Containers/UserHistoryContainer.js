@@ -3,6 +3,10 @@ import UserHistoryCard from '../Components/UserHistoryCard';
 
 class UserHistoryContainer extends Component {
 
+  componentDidMount() {
+    this.props.fetchUser();
+  };
+
   createUserHistoryList = () => {
     return this.props.user.userHistories.map(history => {
        return (
@@ -18,8 +22,8 @@ class UserHistoryContainer extends Component {
   
     render() {
       return (
-          <div id="user-history-container">
-              <h1>{this.props.user.name}'s User History</h1>
+          <div className="containers" id="user-history-container">
+              <h2>{this.props.user.name}'s User History</h2>
               {this.createUserHistoryList()}
           </div>
       );

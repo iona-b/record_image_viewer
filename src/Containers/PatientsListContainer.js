@@ -19,14 +19,16 @@ class PatientsListContainer extends Component {
   
     render() {
       return (
-          <div id="patients-list-container">
-            <h1>Patients List</h1>
+          <div className="containers" id="patients-list-container">
+            <h2>Patients List</h2>
             {this.createPatientsList()}
-            <button className="button" onClick={this.props.openPatientData} >Open Patient Data</button>
-            <button className="button" onClick={this.props.closePatientData}>Close Patient Data</button>
-            <button className="button" onClick={this.props.changeUserHistoryState} >
-              {this.props.userHistoryOpen ? "Close User History" : "Open User History"}
-            </button>
+            <div id="buttons-div">
+              <button className="buttons" onClick={this.props.openPatientData} >Open Patient Data</button>
+              <button className="buttons" onClick={this.props.closePatientData}>Close Patient Data</button>
+              <button className="buttons" onClick={this.props.changeUserHistoryState} >
+                {this.props.userHistoryOpen ? "Close User History" : "Open User History"}
+              </button>
+            </div>
           </div>
       );
     }

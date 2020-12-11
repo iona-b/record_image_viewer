@@ -6,7 +6,7 @@ class UserHistory extends Component {
 
       return (
           <div id="user-history">
-            <h3>{this.props.patientName}: {this.props.action}</h3>
+            <h4>{this.props.patientName}: {this.props.action}</h4>
           </div>
       );
     }
