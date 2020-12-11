@@ -50,7 +50,6 @@ class App extends Component {
     this.setState({
       selectedPatientId: event.target.id
     })
-    console.log(this.state.selectedPatientId)
   }
 
   updateOpenedPatientId = () => {
@@ -60,6 +59,7 @@ class App extends Component {
   }
 
   openPatientData = () => {
+
     if (this.state.selectedPatientId !== 0) {
       fetch(`http://localhost:3000/patients/${this.state.selectedPatientId}`)
       .then(res => res.json())
@@ -73,7 +73,22 @@ class App extends Component {
           }
         })
       })
+      let data = {
+        user_id: 1,
+        patient_id: this.state.selectedPatientId,
+        user_action: "Opened"
+      }
+
+      fetch(`http://localhost:3000/user_histories`,{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
     }
+
   }
 
   closePatientData = () => {
@@ -92,12 +107,16 @@ class App extends Component {
             openPatientData={this.openPatientData}
             closePatientData={this.closePatientData}
             selectedPatientId={this.state.selectedPatientId}
+            userHistoryOpen={this.state.userHistoryOpen}
             changeUserHistoryState={this.changeUserHistoryState}
             updateSelectedPatientId={this.updateSelectedPatientId}
         />
           {
             this.state.userHistoryOpen === true ?
-              <UserHistoryContainer user={this.state.user} />
+              <UserHistoryContainer
+                user={this.state.user}
+                userHistoryOpen={this.state.userHistoryOpen}
+              />
             :
             <PatientDataContainer
               openedPatient={this.state.openedPatient}

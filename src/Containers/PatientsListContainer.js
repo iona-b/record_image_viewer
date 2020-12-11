@@ -24,7 +24,9 @@ class PatientsListContainer extends Component {
             {this.createPatientsList()}
             <button className="button" onClick={this.props.openPatientData} >Open Patient Data</button>
             <button className="button" onClick={this.props.closePatientData}>Close Patient Data</button>
-            <button className="button" onClick={this.props.changeUserHistoryState}>Open User History</button>
+            <button className="button" onClick={this.props.changeUserHistoryState} >
+              {this.props.userHistoryOpen ? "Close User History" : "Open User History"}
+            </button>
           </div>
       );
     }

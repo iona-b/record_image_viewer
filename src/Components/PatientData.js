@@ -13,6 +13,6 @@ class PatientData extends Component {
           </div>
       );
     }
-  }
+}
   
-  export default PatientData;
+export default PatientData;
